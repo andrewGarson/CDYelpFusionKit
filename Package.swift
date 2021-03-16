@@ -1,3 +1,4 @@
+// swift-tools-version:5.3
 //
 //  Package.swift
 //  CDYelpFusionKit
@@ -41,13 +42,11 @@ let package = Package(
             targets: ["CDYelpFusionKit"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", "5.2.2")
-        .package(url: "https://github.com/tristanhimmelman/ObjectMapper", "4.2.0")
+        .package(name: "Alamofire", url: "https://github.com/Alamofire/Alamofire.git", .exact("5.2.2")),
+        .package(name: "ObjectMapper", url: "https://github.com/tristanhimmelman/ObjectMapper", .exact("4.2.0")),
     ],
     targets: [
-        .target(
-            name: "CDYelpFusionKit",
-            path: "CDYelpFusionKit")
+        .target(name: "CDYelpFusionKit", dependencies: ["Alamofire", "ObjectMapper"])
     ],
-    swiftLanguageVersions: [.v5])
+    swiftLanguageVersions: [.v5]
 )
